@@ -302,3 +302,28 @@ export default App
 ```
 ![Alt text](./react-for-beginners/assets/app-js.png)
 ![Alt text](./react-for-beginners/assets/app-js-is-red.png)
+
+19. Now to think about how we can combine what we already know and make the first app use `useState` to dynamically set Tweets. Imagine having an API that returns a list of users and their messages, this is how you would combine the two.
+
+```
+import React, {useState} fro, "react";
+import Tweet from "./Tweet";
+
+function App() {
+  const [users, setUsers] = useState([
+    { name: 'Ed', message: 'Hello there' },
+    { name: 'John', message: 'I am john snow' },
+    { name: 'traversy', message: 'I am awesome' }
+  ])
+
+  return (
+    <div classname='app'>
+      {users.map(user => (
+        <Tweet name={user.name} />  
+      ))}
+    </div>
+  )
+}
+```
+
+We can map through the tweets and render each fields in jsx. 
