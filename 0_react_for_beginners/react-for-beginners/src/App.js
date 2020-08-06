@@ -1,32 +1,21 @@
-import React from 'react';
-// import Hello from './sayHello';
-import Tweet from './Tweet'
+import React, { useState } from "react";
+import Tweet from "./Tweet"
 
-function App(){
-  // return(
-  //   <div>
-  //     <h3>This is the App Component</h3>
-  //
-  //     <Hello />
-  //   </div>
-  // )
-  // return(
-  //   <div>
-  //     <h3>This is the App Component</h3>
-  //
-  //     <Tweet />
-  //     <Tweet />
-  //     <Tweet />
-  //   </div>
-  // )
+function App() {
+  const [isRed, setRed] = useState(false) // boolean
+  const [count, setCount] =  useState(0) // integer
 
-  return(
-      <div className='app'>
-        <Tweet name='Jane Doe' message='I am she who is unknown' likes='1'/>
-        <Tweet name='John Doe' message='I am he who is unknown' likes='1'/>
-        <Tweet name='Doe a deer' message='I am from the forest' likes='90k'/>
-      </div>
+  const increment = () => {
+    setCount(count + 1);
+    setRed(!isRed);
+  };
+
+  return (
+    <div className="app">
+      <button onClick={increment}>Increment</button>
+      <h1 class={isRed ? 'red-header' : ''}>{count}</h1>
+    </div>
   );
 }
 
-export default App;
+export default App
